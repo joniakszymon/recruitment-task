@@ -3,8 +3,7 @@
 1. git clone https://github.com/joniakszymon/recruitment-task.git
 2. npm install
 3. npm install ngx-pagination --save
-4. ls to project directory
-5. ng serve
+4. ng serve
 
 # RecruitmentTask
 

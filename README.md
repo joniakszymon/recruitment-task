@@ -1,3 +1,11 @@
+# Starting project
+
+1. git clone https://github.com/joniakszymon/recruitment-task.git
+2. npm install
+3. npm install ngx-pagination --save
+4. ls to project directory
+5. ng serve
+
 # RecruitmentTask
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.

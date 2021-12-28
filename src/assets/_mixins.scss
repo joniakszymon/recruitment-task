@@ -1,0 +1,9 @@
+/* Mixins */
+
+@mixin wrapper($width, $height) {
+    display: flex;
+    width: $width;
+    height: $height;
+    border-radius: 15px;
+    box-shadow: 0 0 40px $grey-600;
+}

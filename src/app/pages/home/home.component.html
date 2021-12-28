@@ -1,0 +1,83 @@
+<!-- <div class="container">
+  <app-search-engine></app-search-engine>
+</div>
+<div class="container">
+  <app-search-results></app-search-results>
+</div> -->
+<div class="container">
+  <div class="search-engine">
+    <form action="">
+      <div class="row">
+      <div class="col-12 col-lg-3 col-md-6">
+        <label for="name">Nazwa lotu</label>
+        <input
+          class="input-field"
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Wpisz nazwę"
+          [(ngModel)]="filterString"
+        />
+      </div>
+      <div class="col-12 col-lg-3 col-md-6">
+        <label for="date">Data lotu</label>
+        <input class="input-field" type="date" name="date" id="date" />
+      </div>
+      <div class="col-12 col-lg-3 col-md-6 checkbox">
+        <input type="checkbox" name="checkbox" id="checkbox" #che [checked]="true"/>
+        <label for="checkbox">Pokaż tylko udane loty</label>
+      </div>
+      <div class="col-12 col-lg-3 col-md-6">
+        <button class="search">szukaj</button>
+      </div>
+      </div>
+    </form>
+  </div>
+  <div class="list">
+    <ul
+      *ngFor="
+        let launch of launches
+          | paginate
+            : { itemsPerPage: 20, currentPage: page, totalItems: totalLaunches }
+          | filter: filterString
+      "
+    >
+      <li>
+        <div class="wrapper">
+          <div class="left">
+            <img [src]="launch?.links?.mission_patch" alt="" />
+          </div>
+          <div class="right">
+            <div class="info">
+              <p class="flight-number">
+                Numer lotu: {{ launch.flight_number }}
+              </p>
+              <p class="rocket-name">Nazwa misji: {{ launch.mission_name }}</p>
+              <p class="date">
+                Data startu: {{ launch.launch_date_local | date: "longDate" }}
+              </p>
+              <a
+                [routerLink]="[
+                  '/flight-details',
+                  launch.flight_number,
+                  launch.crew,
+                  launch.details,
+                  launch.mission_name,
+                  launch.launch_date_local,
+                  launch.launch_success,
+                  launch.site_name_long,
+                  launch.rocket.rocket_name
+                ]"
+                >więcej ></a
+              >
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <pagination-controls
+    (pageChange)="page = $event; launches = []; getLaunches()"
+  ></pagination-controls>
+</div>

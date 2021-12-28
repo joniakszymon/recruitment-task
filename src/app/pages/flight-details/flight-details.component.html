@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="top-bar">
+        <div>
+            <a routerLink="/" routerLinkActive="active">
+                <i class="fas fa-reply"></i>
+            </a>
+        </div>
+        <div>
+            <h1>Szczegóły lotu # {{ flight_number }} </h1>
+        </div>
+    </div>
+    <div class="top-information">
+        <div class="left-box">
+            <p>Lot: {{ mission_name }} </p>
+            <p>Data lotu: {{ launch_date_local | date: 'longDate' }}</p>
+            <p>Status: {{ launch_success === 'false' ? 'Nieudany' : 'Udany' }}</p>
+        </div>
+        <div class="right-box">
+            <p>Załoga: {{ crew === 'null' ? 0 : crew }}</p>
+            <p>Rakieta: {{ rocket }}</p>
+            <p>Start: {{ site_name_long }}</p>
+        </div>
+    </div>
+    <div class="slider-wrapper">
+        <div class="slider"></div>
+    </div>
+    <div class="bottom-information">
+        <p>{{ details === 'null' ? 'Brak informacji' : details }}</p>
+    </div>
+</div>

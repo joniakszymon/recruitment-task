@@ -13,4 +13,7 @@ export class MainService {
   getData() {
     return this.http.get(`https://api.spacexdata.com/v3/launches?limit=110&offset=0`);
   }
+  getFlightDetails(flightNumber: any) {
+    return this.http.get(`https://api.spacexdata.com/v3/launches/${flightNumber}`);
+  }
 }

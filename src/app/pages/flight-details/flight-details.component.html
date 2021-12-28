@@ -6,25 +6,27 @@
             </a>
         </div>
         <div>
-            <h1>Szczegóły lotu # {{ flight_number }} </h1>
+            <h1>Szczegóły lotu # {{ flightDetails.flight_number }} </h1>
         </div>
     </div>
     <div class="top-information">
         <div class="left-box">
-            <p>Lot: {{ mission_name }} </p>
-            <p>Data lotu: {{ launch_date_local | date: 'longDate' }}</p>
-            <p>Status: {{ launch_success === 'false' ? 'Nieudany' : 'Udany' }}</p>
+            <p>Lot: {{ flightDetails.mission_name }} </p>
+            <p>Data lotu: {{ flightDetails.launch_date_local | date: 'longDate' }}</p>
+            <p>Status: {{ flightDetails.launch_success === 'false' ? 'Nieudany' : 'Udany' }}</p>
         </div>
         <div class="right-box">
-            <p>Załoga: {{ crew === 'null' ? 0 : crew }}</p>
-            <p>Rakieta: {{ rocket }}</p>
-            <p>Start: {{ site_name_long }}</p>
+            <p>Załoga: {{ flightDetails.crew === 'null' ? 0 : flightDetails.crew }}</p>
+            <p>Rakieta: {{ flightDetails.rocket.rocket_name }}</p>
+            <p>Start: {{ flightDetails.site_name_long }}</p>
         </div>
     </div>
     <div class="slider-wrapper">
-        <div class="slider"></div>
+        <div class="slider" *ngFor="let item of flightDetails.links?.flickr_images">
+            <img [src]="item" alt="" width="350px" height="350px">
+        </div>
     </div>
     <div class="bottom-information">
-        <p>{{ details === 'null' ? 'Brak informacji' : details }}</p>
+        <p>{{ flightDetails.details === 'null' ? 'Brak informacji' : flightDetails.details }}</p>
     </div>
 </div>

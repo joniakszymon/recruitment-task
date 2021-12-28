@@ -10,6 +10,7 @@ export class HomeComponent implements OnInit{
   launches: any[] = [];
   page = 0;
   totalLaunches: number | undefined;
+  isFlightSuccess: boolean = false;
   
 
   filterString: string = '';
@@ -24,8 +25,15 @@ export class HomeComponent implements OnInit{
       if (response) {
         this.totalLaunches = response.count;
         this.launches = response;
-        console.log(this.launches)
+        console.log(this.launches);
       }
     })
+  }
+  showSuccessLaunches() {
+    for(const launch of this.launches) {
+      if(launch.launch_success === false) {
+        console.log(launch);
+      }
+    }
   }
 }

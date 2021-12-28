@@ -24,7 +24,7 @@
         <input class="input-field" type="date" name="date" id="date" />
       </div>
       <div class="col-12 col-lg-3 col-md-6 checkbox">
-        <input type="checkbox" name="checkbox" id="checkbox" #che [checked]="true"/>
+        <input type="checkbox" name="checkbox" id="checkbox" [checked]="isFlightSuccess" (change)="isFlightSuccess = !isFlightSuccess; showSuccessLaunches()"/>
         <label for="checkbox">Pokaż tylko udane loty</label>
       </div>
       <div class="col-12 col-lg-3 col-md-6">
@@ -45,7 +45,9 @@
       <li>
         <div class="wrapper">
           <div class="left">
-            <img [src]="launch?.links?.mission_patch" alt="" />
+            <div *ngIf="launch.links.flickr_images.length !== 0">
+              <img [src]="launch?.links.flickr_images[0]" alt="">
+            </div>
           </div>
           <div class="right">
             <div class="info">
@@ -60,13 +62,7 @@
                 [routerLink]="[
                   '/flight-details',
                   launch.flight_number,
-                  launch.crew,
-                  launch.details,
-                  launch.mission_name,
-                  launch.launch_date_local,
-                  launch.launch_success,
-                  launch.site_name_long,
-                  launch.rocket.rocket_name
+
                 ]"
                 >więcej ></a
               >

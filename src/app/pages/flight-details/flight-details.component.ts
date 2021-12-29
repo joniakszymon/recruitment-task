@@ -11,6 +11,7 @@ import { MainService } from 'src/app/services/main.service';
 export class FlightDetailsComponent implements OnInit, OnDestroy {
   flightDetails: any;
   private readonly unsubscribe$ =  new Subject();
+  i: number = 0;
 
 
   constructor(private http: MainService, private route: ActivatedRoute) { }
@@ -20,7 +21,7 @@ export class FlightDetailsComponent implements OnInit, OnDestroy {
 
     this.http.getFlightDetails(flight_number).pipe(takeUntil(this.unsubscribe$)).subscribe(res => {
       this.flightDetails = res;
-      console.log(this.flightDetails);
+      console.log(this.flightDetails.launch_site.site_name_long);
     })
 
   }

@@ -11,6 +11,8 @@ import { SearchResultsComponent } from './components/search-results/search-resul
 import { FlightDetailsComponent } from './pages/flight-details/flight-details.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FilterPipe } from './Pipes/filter.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { FilterPipe } from './Pipes/filter.pipe';
     AppRoutingModule,
     HttpClientModule,
     NgxPaginationModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -27,27 +27,27 @@
         .left-box {
             display: flex;
             flex-direction: column;
-            @include wrapper(100%, 160px);
+            @include wrapper(100%, auto);
             margin-right: 10px;
             padding: 25px;
         }
         .right-box {
             display: flex;
             flex-direction: column;
-            @include wrapper(100%, 160px);
+            @include wrapper(100%, auto);
             margin-left: 10px;
             padding: 25px;
         }
     }
     .slider-wrapper {
-        @include wrapper(100%, 500px);
+        @include wrapper(100%, auto);
         margin-bottom: 30px;
         display: flex;
         justify-content: center;
         align-items: center;
     }
     .bottom-information {
-        @include wrapper(100%, 160px);
+        @include wrapper(100%, auto);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -68,6 +68,11 @@
         }
         .right-box {
             margin: 0 !important;
+        }
+    }
+    .slider-wrapper {
+        img {
+            border-radius: 12px;
         }
     }
 }
